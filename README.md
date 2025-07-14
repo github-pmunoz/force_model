@@ -5,8 +5,10 @@ A sophisticated force-based polygon deformation simulation with restoration forc
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Python 3.8 or higher
+- Python 3.6 or higher
 - pip (Python package manager)
+
+> **Note**: For Python 3.6, some features may have limited compatibility. See [PYTHON36_COMPATIBILITY.md](PYTHON36_COMPATIBILITY.md) for details.
 
 ### Installation
 
@@ -57,12 +59,12 @@ A sophisticated force-based polygon deformation simulation with restoration forc
 
 The project requires the following Python packages:
 
-- **numpy** (≥1.21.0) - Numerical computations
-- **matplotlib** (≥3.5.0) - Visualization
-- **shapely** (≥1.8.0) - Geometric operations
-- **numba** (≥0.56.0) - JIT compilation for performance
+- **numpy** (≥1.16.0) - Numerical computations
+- **matplotlib** (≥3.0.0) - Visualization
+- **shapely** (≥1.6.0) - Geometric operations
+- **numba** (≥0.48.0) - JIT compilation for performance
 - **cython** (≥0.29.0) - Optional C extensions
-- **setuptools** (≥60.0.0) - Build tools
+- **setuptools** (≥40.0.0) - Build tools
 
 ## 🖥️ Platform Compatibility
 

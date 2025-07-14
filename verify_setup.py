@@ -11,11 +11,13 @@ import os
 def check_python_version():
     """Check if Python version is compatible"""
     version = sys.version_info
-    if version >= (3, 8):
+    if version >= (3, 6):
         print(f"✓ Python version {version.major}.{version.minor}.{version.micro} is compatible")
+        if version < (3, 7):
+            print("⚠️  Python 3.6 detected - using compatibility mode")
         return True
     else:
-        print(f"❌ Python version {version.major}.{version.minor}.{version.micro} is too old (requires 3.8+)")
+        print(f"❌ Python version {version.major}.{version.minor}.{version.micro} is too old (requires 3.6+)")
         return False
 
 def check_package(package_name, import_name=None):

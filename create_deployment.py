@@ -18,8 +18,10 @@ def create_deployment_package():
         'forces.py',
         'restoration_forces.py',
         'requirements.txt',
+        'requirements-py36.txt',
         'setup.py',
         'README.md',
+        'PYTHON36_COMPATIBILITY.md',
         'install.py',
         'verify_setup.py',
         '.gitignore',
@@ -82,9 +84,11 @@ def create_deployment_package():
 ### Core Files (Required)
 - **forces.py** - Main simulation engine
 - **restoration_forces.py** - Restoration force calculations
-- **requirements.txt** - Python dependencies
+- **requirements.txt** - Python dependencies (3.7+)
+- **requirements-py36.txt** - Python 3.6 compatible dependencies
 - **setup.py** - Cython compilation setup
 - **README.md** - Complete documentation
+- **PYTHON36_COMPATIBILITY.md** - Python 3.6 compatibility guide
 - **install.py** - Automated installation script
 - **verify_setup.py** - Setup verification script
 
@@ -101,10 +105,34 @@ def create_deployment_package():
 - **run_forces_test.py** - Run simulation without blocking
 
 ## System Requirements
-- Python 3.8+
+- Python 3.6+ (see PYTHON36_COMPATIBILITY.md for 3.6 specifics)
 - Windows/Linux/macOS
 - 4GB RAM minimum
 - Git (for version control)
+
+## Python Version Support
+- **Python 3.6**: Supported with limitations (see PYTHON36_COMPATIBILITY.md)
+- **Python 3.7+**: Full support with optimal performance
+- **Python 3.9+**: Recommended for best performance
+
+## Installation Methods
+
+### Automatic (Recommended)
+```bash
+python install.py
+```
+
+### Manual for Python 3.6
+```bash
+pip install -r requirements-py36.txt
+python setup.py build_ext --inplace
+```
+
+### Manual for Python 3.7+
+```bash
+pip install -r requirements.txt
+python setup.py build_ext --inplace
+```
 
 ## Quick Start
 ```bash

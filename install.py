@@ -30,15 +30,26 @@ def main():
     print("=" * 50)
     
     # Check Python version
-    if sys.version_info < (3, 8):
-        print("❌ Python 3.8 or higher is required")
+    if sys.version_info < (3, 6):
+        print("❌ Python 3.6 or higher is required")
         sys.exit(1)
     
     print(f"✓ Python version: {sys.version}")
     
+    # Choose appropriate requirements file based on Python version
+    if sys.version_info >= (3, 7):
+        requirements_file = "requirements.txt"
+        print("Using standard requirements for Python 3.7+")
+    else:
+        requirements_file = "requirements-py36.txt"
+        print("Using Python 3.6 compatible requirements")
+        if not os.path.exists(requirements_file):
+            print("⚠️  Python 3.6 requirements file not found, using standard requirements")
+            requirements_file = "requirements.txt"
+    
     # Install dependencies
     print("\n📦 Installing dependencies...")
-    if not run_command("pip install -r requirements.txt", "Installing Python packages"):
+    if not run_command(f"pip install -r {requirements_file}", f"Installing Python packages from {requirements_file}"):
         print("❌ Failed to install dependencies")
         sys.exit(1)
     
